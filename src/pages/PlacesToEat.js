@@ -3,14 +3,14 @@ import { useNavigate } from "react-router-dom";
 import imagePlaceholder from "../img/img-placeholder.jpg";
 
 export default function PlacesToEat() {
-    const [posts, setPosts] = useState([]);
+    const [places, setPlaces] = useState([]);
     const navigate = useNavigate();
 
     useEffect(() => {
         async function getData() {
             const response = await fetch("/data/placesToEat.json");
             const data = await response.json();
-            setPosts(data);
+            setPlaces(data);
             console.log(data);
         }
         getData();
@@ -20,11 +20,11 @@ export default function PlacesToEat() {
         <section className="page">
             <h1>Places To Eat</h1>
             <section className="grid-container">
-                {posts.map(post => (
-                    <article key={post.Id} onClick={() => navigate(`/places-to-eat/${post.Id}`)}>
-                        <img src={post.Files[0] ? post.Files[0].Uri : imagePlaceholder} alt={post.Name} />
-                        <h2>{post.Name}</h2>
-                        <p>{post.Category.Name}</p>
+                {places.map(place => (
+                    <article key={place.Id} onClick={() => navigate(`/places-to-eat/${place.Id}`)}>
+                        <img src={place.Files[0] ? place.Files[0].Uri : imagePlaceholder} alt={place.Name} />
+                        <h2>{place.Name}</h2>
+                        <p>{place.Category.Name}</p>
                     </article>
                 ))}
             </section>
