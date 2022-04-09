@@ -48,10 +48,15 @@ a {
     color: var(--green);
 }
 
+img {
+    max-width: 100%;
+    height: auto;
+}
+
 .page {
     background-color: var(--light-green);
-    min-height: calc(100vh - 58px - 2em);
-    padding: 1em;
+    min-height: calc(100vh - 58px - 4em);
+    padding: 1em 1em 4em;
 }
 
 .text-center {
@@ -120,6 +125,16 @@ nav a.active {
     color: var(--green);
 }
 
+footer {
+    background-color: var(--green);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: var(--text-color-light);
+}
+
 /* ---------- grid container styling ---------- */
 .grid-container {
     display: grid;
@@ -135,7 +150,7 @@ nav a.active {
 
 @media (min-width: 992px) {
     .grid-container {
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
     }
 }
 
